@@ -2,6 +2,10 @@ import { Text } from "doodlin-design-system";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../../style/ItemHistory/index.scss";
+import main from "../../asset/house.svg";
+import history from "../../asset/history.svg";
+import list from "../../asset/list.svg";
+import calendar from "../../asset/calendar.svg";
 
 function TapBar() {
   const { pathname } = useLocation();
@@ -9,7 +13,7 @@ function TapBar() {
     <div className="TapBar">
       <Link to="/">
         <Text className={`tab main ${pathname === "/" ? "current" : ""}`}>
-          메인
+          <img src={main} alt="" />
         </Text>
       </Link>
       <Link to="/calendar">
@@ -18,19 +22,19 @@ function TapBar() {
             pathname === "/calendar" ? "current" : ""
           }`}
         >
-          달력
+          <img src={calendar} alt="" />
         </Text>
       </Link>
       <Link to="/list">
         <Text className={`tab list ${pathname === "/list" ? "current" : ""}`}>
-          목록
+          <img src={list} alt="" />
         </Text>
       </Link>
       <Link to="/history">
         <Text
           className={`tab history ${pathname === "/history" ? "current" : ""}`}
         >
-          변화
+          <img src={history} alt="" />
         </Text>
       </Link>
     </div>
