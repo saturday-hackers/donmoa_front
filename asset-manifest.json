@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e9e0548a.chunk.css",
+    "main.js": "/static/js/main.bab69192.chunk.js",
+    "main.js.map": "/static/js/main.bab69192.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0d523535.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0d523535.js.map",
+    "static/js/2.dbb3c6aa.chunk.js": "/static/js/2.dbb3c6aa.chunk.js",
+    "static/js/2.dbb3c6aa.chunk.js.map": "/static/js/2.dbb3c6aa.chunk.js.map",
+    "static/js/3.f1c183e8.chunk.js": "/static/js/3.f1c183e8.chunk.js",
+    "static/js/3.f1c183e8.chunk.js.map": "/static/js/3.f1c183e8.chunk.js.map",
+    "index.html": "/index.html",
+    "service-worker.js": "/service-worker.js",
+    "service-worker.js.map": "/service-worker.js.map",
+    "static/css/main.e9e0548a.chunk.css.map": "/static/css/main.e9e0548a.chunk.css.map",
+    "static/js/2.dbb3c6aa.chunk.js.LICENSE.txt": "/static/js/2.dbb3c6aa.chunk.js.LICENSE.txt",
+    "static/media/calendar.8c677f88.svg": "/static/media/calendar.8c677f88.svg",
+    "static/media/close-btn.00bd7cde.svg": "/static/media/close-btn.00bd7cde.svg",
+    "static/media/history.b71749aa.svg": "/static/media/history.b71749aa.svg",
+    "static/media/house.4e6891a1.svg": "/static/media/house.4e6891a1.svg",
+    "static/media/list.eca1df60.svg": "/static/media/list.eca1df60.svg",
+    "static/media/AddItem.scss": "/static/media/select-arrow.4d5830f0.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0d523535.js",
+    "static/js/2.dbb3c6aa.chunk.js",
+    "static/css/main.e9e0548a.chunk.css",
+    "static/js/main.bab69192.chunk.js"
+  ]
+}
