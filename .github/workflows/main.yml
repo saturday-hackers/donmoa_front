@@ -1,0 +1,20 @@
+on:
+  push:
+    branches:
+      - master
+name: Actions CI Workflow
+jobs:
+  "Deploy":
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn install
+      - run: yarn build
+      - run: ls -la
+
+      - run: git config user.name github-actions
+      - run: git config user.email github-actions@github.com
+      
+      - run: git --work-tree build add --all
+      - run: git commit -m "Automatic Deploy action run by github-actions"
+      - run: git push origin HEAD:gh-pages --force
