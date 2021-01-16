@@ -1,26 +1,30 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useMemo } from "react";
+import "./style/App.scss";
+import { useRecoilValue } from "recoil";
+import { authState } from "./context/authContext";
+import { Switch, Route } from "react-router-dom";
+import Login from "./component/Login";
+import Main from "./component/Main";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const isAuth = useRecoilValue(authState);
+
+  const routes = useMemo(() => {
+    if (isAuth) {
+      return (
+        <Switch>
+          <Route exact path="/" component={Main} />
+        </Switch>
+      );
+    } else {
+      <Switch>
+        <Route path="/" component={Login} />
+      </Switch>;
+    }
+  }, [isAuth]);
+
+  return <BrowserRouter>{routes}</BrowserRouter>;
 }
 
 export default App;
