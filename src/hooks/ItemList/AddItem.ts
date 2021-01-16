@@ -1,4 +1,7 @@
-import { useCallback, useReducer } from "react";
+import { useCallback, useEffect, useReducer } from "react";
+import outcomeCategoriesApi, {
+  IOutcomeCategories,
+} from "../../@api/ItemList/outcomeCategoriesApi";
 import { createLocallyReducer } from "../../utils/action";
 import { makeDayId } from "../../utils/format";
 
@@ -18,7 +21,9 @@ export interface IFormState {
   price: number;
   date: string;
   cycle: ECycleType | number;
-  category: string;
+  category_id: string;
+  categories: IOutcomeCategories[];
+  customCategory: string;
   remind: boolean;
 }
 
@@ -28,7 +33,9 @@ export const initialFormState: IFormState = {
   price: 0,
   date: makeDayId(new Date()),
   cycle: ECycleType.month,
-  category: "",
+  category_id: "custom",
+  categories: [{ id: "custom", name: "카테고리 추가" }],
+  customCategory: "",
   remind: true,
 };
 
@@ -57,7 +64,13 @@ const useAddItem = () => {
 
   const setCategory = useCallback((str: string) => {
     dispatch((draft) => {
-      draft.category = str;
+      draft.category_id = str;
+    });
+  }, []);
+
+  const setCustomCategory = useCallback((str: string) => {
+    dispatch((draft) => {
+      draft.customCategory = str;
     });
   }, []);
 
@@ -79,6 +92,25 @@ const useAddItem = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const request = async () => {
+      const res = await outcomeCategoriesApi();
+      if (res.success) {
+        dispatch((draft) => {
+          if (res.data) {
+            draft.categories = [
+              ...res.data,
+              { id: "custom", name: "카테고리 추가" },
+            ];
+            draft.category_id = res.data[0].id;
+          }
+        });
+      }
+    };
+
+    request();
+  }, []);
+
   return {
     ...state,
     action: {
@@ -86,6 +118,7 @@ const useAddItem = () => {
       setName,
       setDate,
       setCategory,
+      setCustomCategory,
       setPrice,
       setCycle,
       toggleRemind,

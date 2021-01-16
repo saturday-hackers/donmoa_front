@@ -1,24 +1,22 @@
-import outcomesApi from "../../@api/ItemList/outcomesApi";
-import incomesApi from "../../@api/ItemList/incomesApi";
+import outcomesApi, { IOutcomes } from "../../@api/ItemList/outcomesApi";
+import incomesApi, { IIncomes } from "../../@api/ItemList/incomesApi";
 import useAsync from "../@common/async";
 
-export interface ISummaryState {
-  income: number;
-  outcome: number;
-  remain: number;
-}
-
-export const initialItemList = [];
+export const initialItemList: IOutcomes[] = [];
 
 const useItemList = () => {
-  const [{ data: outcomes }] = useAsync<any>(async () => {
+  const [{ data: outcomes }] = useAsync<IOutcomes[]>(async () => {
     const res = await outcomesApi();
-    console.log(res);
+
+    if (res.data) return res.data;
+    else throw res.error ? res.error : new Error();
   }, initialItemList);
 
-  const [{ data: incomes }] = useAsync<any>(async () => {
+  const [{ data: incomes }] = useAsync<IIncomes[]>(async () => {
     const res = await incomesApi();
-    console.log(res);
+
+    if (res.data) return res.data;
+    else throw res.error ? res.error : new Error();
   }, initialItemList);
 
   return { outcomes, incomes };

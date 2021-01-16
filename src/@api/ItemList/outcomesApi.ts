@@ -1,22 +1,25 @@
 import { IApiReturn, authApiAgent } from "../agent";
 
 export enum EIntervalType {
-  monthly = "monthly",
+  default = "default",
   custom = "custom",
 }
 
+export interface IOutcomes {
+  category_id: string;
+  category_name: string;
+  created_at: string;
+  enabled_remind: boolean;
+  id: string;
+  interval_type: EIntervalType;
+  interval_value: number;
+  name: string;
+  price: number;
+  started_date: string;
+}
+
 export interface IOutcomesApiReturn extends IApiReturn {
-  data?: {
-    category_id: string;
-    category_name: string;
-    created_at: string;
-    enabled_remind: boolean;
-    id: string;
-    interval_type: EIntervalType;
-    name: string;
-    price: number;
-    started_date: string;
-  };
+  data?: IOutcomes[];
 }
 
 const outcomesApi = async (): Promise<IOutcomesApiReturn> => {
@@ -25,7 +28,6 @@ const outcomesApi = async (): Promise<IOutcomesApiReturn> => {
   try {
     const res = await getRequest("/outcomes");
 
-    console.log(res);
     if (res.status === 200) {
       return {
         success: true,

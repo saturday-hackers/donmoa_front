@@ -24,9 +24,32 @@
       height: 30px;
       width: 30px;
     }
+    .category-select {
+      border: 1px solid $gray_4;
+      border-radius: 6px;
+      width: 146px;
+      height: 32px;
+      padding: 0 8px;
+      margin-right: 8px;
+
+      font-size: 14px;
+      box-sizing: border-box;
+
+      cursor: pointer;
+      appearance: none;
+      background: url("../../asset/select-arrow.svg") no-repeat right 8px center;
+      outline: none;
+      transition: all 0.1s ease-out;
+
+      &:hover,
+      &:active {
+        border: 1px solid $gray_6;
+      }
+    }
   }
-  .custom-input {
-    width: 145px;
+  .custom-input,
+  .custom-category {
+    width: 146px;
     margin-top: 5px;
     margin-left: 100px;
   }

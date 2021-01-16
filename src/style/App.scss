@@ -2,14 +2,14 @@
 
 .App {
   position: fixed;
-  height: 100vh;
+  height: calc(100vh - 40px);
   overflow-y: auto;
   .TapBar {
     width: 100vw;
     display: flex;
     justify-content: space-around;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     border-top: solid 1px $gray_4;
     .tab {
       width: 25vw;

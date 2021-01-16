@@ -13,7 +13,9 @@ const AddItem: React.FC = () => {
     price,
     date,
     cycle,
-    category,
+    category_id,
+    customCategory,
+    categories,
     remind,
     action: {
       setType,
@@ -21,6 +23,7 @@ const AddItem: React.FC = () => {
       setPrice,
       setDate,
       setCategory,
+      setCustomCategory,
       setCycle,
       toggleRemind,
     },
@@ -105,12 +108,25 @@ const AddItem: React.FC = () => {
       )}
       <div className="attr category">
         <div className="label">카테고리</div>
-        <Input
-          value={category}
-          inputSize="sm"
+        <select
+          className="category-select"
+          value={category_id}
           onChange={(e) => setCategory(e.currentTarget.value)}
-        />
+        >
+          {categories.map((c) => (
+            <option value={c.id}>{c.name}</option>
+          ))}
+        </select>
       </div>
+      {category_id === "custom" && (
+        <Input
+          className="custom-category"
+          value={customCategory}
+          inputSize="xxs"
+          placeholder="카테고리 입력"
+          onChange={(e) => setCustomCategory(e.currentTarget.value)}
+        />
+      )}
       {type === EItemType.outcome && (
         <div className="attr remind">
           <div className="label">리마인드 여부</div>
