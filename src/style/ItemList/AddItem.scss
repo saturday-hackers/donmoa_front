@@ -1,0 +1,41 @@
+@import "../index.scss";
+
+.ItemList .Window .AddItem {
+  input {
+    width: calc(100vw - 40px - 100px);
+  }
+  .attr {
+    display: flex;
+    margin-top: 14px;
+    align-items: center;
+    .label {
+      width: 100px;
+      font-weight: bold;
+    }
+    button {
+      margin-left: 0px;
+      margin-right: 5px;
+      &.current {
+        @include button-color($blue_8);
+      }
+    }
+    .remind-btn {
+      padding: 0;
+      height: 30px;
+      width: 30px;
+    }
+  }
+  .custom-input {
+    width: 145px;
+    margin-top: 5px;
+    margin-left: 100px;
+  }
+  .btn-area {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    .submit-btn {
+      @include button-color($blue_8);
+    }
+  }
+}

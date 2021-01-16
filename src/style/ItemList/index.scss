@@ -1,0 +1,12 @@
+@import "../index.scss";
+
+.ItemList {
+  position: relative;
+  width: 100vw;
+  .content {
+    padding: 0px 20px;
+    button.add-btn {
+      @include button-color($blue_6);
+    }
+  }
+}

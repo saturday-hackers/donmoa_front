@@ -1,0 +1,38 @@
+@import "../index.scss";
+
+.Main {
+  height: calc(100vh - 40px);
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  position: relative;
+  .logo {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-weight: bolder;
+  }
+  .content {
+    width: 50vw;
+    min-width: max-content;
+    height: max-content;
+    margin: 0 auto;
+    padding-top: 60px;
+  }
+  .attr {
+    margin-bottom: 60px;
+    .label {
+      margin-bottom: 10px;
+    }
+    .outcome {
+      color: $yellow_9;
+    }
+    .income {
+      color: $blue_8;
+    }
+    .won {
+      font-size: 16px;
+      margin-left: 5px;
+    }
+  }
+}

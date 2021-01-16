@@ -1,13 +1,311 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/////////////////* Fonts */////////////////
+
+// Font-family
+$font: "Spoqa Han Sans Neo", "sans-serif";
+
+// Letter-spacing
+$korean-letter-spacing: -0.96px;
+
+// Font-weight
+$light: 300;
+$regular: 400;
+$medium: 500;
+$bold: 600;
+
+// Spacing
+$spacing_0: 0.4px;
+$spacing_1: 0.8px;
+$spacing_2: 1.6px;
+$spacing_3: 2px;
+$spacing_4: 4px;
+$spacing_5: 6px;
+
+// Title font
+@mixin tit-xxxl-text($color: $gray_9, $weight: $medium) {
+  font-size: 48px;
+  font-weight: $weight;
+  line-height: 72px;
+  color: $color;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@mixin tit-xxl-text($color: $gray_9, $weight: $medium) {
+  font-size: 36px;
+  font-weight: $weight;
+  line-height: 54px;
+  color: $color;
+}
+
+@mixin tit-xl-text($color: $gray_9, $weight: $medium) {
+  font-size: 24px;
+  font-weight: $weight;
+  line-height: 36px;
+  color: $color;
+}
+
+@mixin tit-lg-text($color: $gray_9, $weight: $medium) {
+  font-size: 21px;
+  font-weight: $weight;
+  line-height: 32px;
+  color: $color;
+}
+
+@mixin tit-md-text($color: $gray_9, $weight: $medium) {
+  font-size: 18px;
+  font-weight: $weight;
+  line-height: 28px;
+  color: $color;
+}
+
+// UI, Buttons font
+@mixin ui-lg-text($color: $gray_8, $weight: $regular) {
+  font-size: 18px;
+  font-weight: $weight;
+  line-height: 28px;
+  color: $color;
+}
+
+@mixin ui-md-text($color: $gray_8, $weight: $regular) {
+  font-size: 16px;
+  font-weight: $weight;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin ui-sm-text($color: $gray_8, $weight: $regular) {
+  font-size: 14px;
+  font-weight: $weight;
+  line-height: 20px;
+  color: $color;
+}
+
+@mixin ui-xs-text($color: $gray_8, $weight: $regular) {
+  font-size: 12px;
+  font-weight: $weight;
+  line-height: 18px;
+  color: $color;
+}
+
+// Description font
+@mixin desc-lg-text($color: $gray_8, $weight: $light) {
+  font-size: 18px;
+  font-weight: $weight;
+  line-height: 32px;
+  color: $color;
+}
+
+@mixin desc-md-text($color: $gray_8, $weight: $light) {
+  font-size: 16px;
+  font-weight: $weight;
+  line-height: 28px;
+  color: $color;
+}
+
+@mixin desc-sm-text($color: $gray_8, $weight: $light) {
+  font-size: 14px;
+  font-weight: $weight;
+  line-height: 26px;
+  color: $color;
+}
+@mixin desc-xs-text($color: $gray_8, $weight: $light) {
+  font-size: 12px;
+  font-weight: $weight;
+  line-height: 22px;
+  color: $color;
+}
+
+/////////////////* Color */////////////////
+
+// Primary Color
+$yellow_0: #fff9db;
+$yellow_1: #fff3bf;
+$yellow_2: #ffec99;
+$yellow_3: #ffe066;
+$yellow_4: #ffd43b; // Primary
+$yellow_5: #fcc419;
+$yellow_6: #fab005; // Primary
+$yellow_7: #f59f00;
+$yellow_8: #f08c00;
+$yellow_9: #e67700;
+
+// Secondary Color
+$blue_0: #e7f5ff;
+$blue_1: #d0ebff;
+$blue_2: #a5d8ff;
+$blue_3: #74c0fc;
+$blue_4: #4dabf7;
+$blue_5: #339af0;
+$blue_6: #228be5;
+$blue_7: #1c7ed6;
+$blue_8: #1971c2;
+$blue_9: #1864ab;
+$blue_10: #0a467f;
+
+// Kanban Color
+$gray_4: #d0d0d0;
+$blue_2: #a5d8ff;
+$blue_4: #4dabf7;
+$blue_6: #228be5;
+$teal_4: #38d9a9;
+$teal_6: #12b886;
+
+// Gray Color
+$gray_0: #f8f8f8; // bg0
+$gray_1: #f1f1f1; // bg1, hover
+$gray_2: #e9e9e9; // ghost && disabled button border
+$gray_3: #e0e0e0; // primary border
+$gray_4: #d0d0d0; // input, button border, disabled text
+$gray_5: #b0b0b0;
+$gray_6: #8b8b8b; // sub icon, text
+$gray_7: #555555; // primary icon
+$gray_8: #333333; // primary text
+$gray_9: #111111; // title text
+
+// System Color
+$red_8: #e03131; // caution, error alert
+$green_6: #40c057; // success
+$yellow_6: #fab005; // warning
+$blue_6: #228be5; // information
+
+// Shadow
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md0: 0 4px 8px rgba(0, 0, 0, 0.12);
+$shadow-md1: 0 2px 4px rgba(0, 0, 0, 0.08);
+$shadow-lg0: 0 5px 30px rgba(0, 0, 0, 0.12);
+$shadow-lg1: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+// Container
+$login-container-width: 772px;
+
+// Transition Variables
+$button-hover-transition: ease-in-out 0.2s;
+
+// Mixin
+// * $WH: Width, height value (e.g. 160px)
+// * $Bsize: border-size value (e.g. 3px)
+// * $Bc0: border-color value (e.g. #fff)
+// * $Bc1: border-background-color value (e.g. #ffffff33)
+@mixin SpinSize(
+  $WH: 16px,
+  $Bsize: 3px,
+  $Bc0: #fff,
+  $Bc1: rgba(255, 255, 255, 0.2)
+) {
+  width: $WH;
+  height: $WH;
+  border: $Bsize solid $Bc0;
+  margin: 0;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border-color: $Bc0 $Bc1 $Bc1 $Bc1;
+  animation: spin 1.15s cubic-bezier(0.31, 0.63, 0.8, 0.73) infinite;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+// * $bgc: background-color (e.g. #fff)
+// * $fc: font-color (e.g. #111)
+// * $dis-bgc: disabled background-color
+// * $dis-fc: disabled font-color
+@mixin button-color(
+  $bgc: $gray_8,
+  $fc: white,
+  $dis-bgc: $gray_2,
+  $dis-fc: $gray_4
+) {
+  background: $bgc;
+  color: $fc;
+  &:hover {
+    @if $bgc == $yellow_4 {
+      background: $yellow_6;
+    } @else {
+      background: lighten($bgc, 10%);
+    }
+  }
+  &:active {
+    @if $bgc == $yellow_4 {
+      background: darken($yellow_6, 5%);
+    } @else {
+      background: darken($bgc, 10%);
+    }
+  }
+
+  // Variant (ghost, text)
+  &.ghost {
+    background: transparent;
+    border: 1px solid $bgc;
+    @if $bgc == $gray_4 {
+      color: $fc;
+    } @else {
+      color: $bgc;
+    }
+    &:hover {
+      @if $bgc == $gray_4 {
+        background: $gray_1;
+        border: 1px solid $gray_4;
+        color: $fc;
+      } @else {
+        background: $bgc;
+        color: $fc;
+      }
+    }
+    &:active {
+      @if $bgc == $gray_4 {
+        background: $gray_3;
+        border: 1px solid $gray_4;
+      } @else {
+        background: darken($bgc, 10%);
+      }
+    }
+  }
+
+  &.text {
+    background: none;
+    color: $bgc;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:active {
+      color: darken($bgc, 10%);
+    }
+  }
+
+  // Disabled
+  &.dis {
+    background: $dis-bgc;
+    color: $dis-fc;
+    cursor: default;
+    &:hover {
+      background: $dis-bgc;
+      color: $dis-fc;
+    }
+  }
+  &.dis-ghost {
+    background: transparent;
+    border: 1px solid $dis-bgc;
+    &:hover,
+    &:active {
+      background: transparent;
+      border: 1px solid $dis-bgc;
+      color: $dis-fc;
+    }
+  }
+  &.dis-text {
+    background: transparent;
+    border: transparent;
+    &:hover {
+      background: transparent;
+      text-decoration: none;
+    }
+    &:active {
+      color: $dis-fc;
+    }
+  }
 }

@@ -7,8 +7,9 @@ import Login from "./component/Login";
 import Main from "./component/Main";
 import { BrowserRouter } from "react-router-dom";
 import Calendar from "./component/Calendar";
-import History from "./component/History";
-import List from "./component/List";
+import History from "./component/ItemHistory";
+import List from "./component/ItemList";
+import TapBar from "./component/@common/TapBar";
 
 function App() {
   const isAuth = useRecoilValue(authState);
@@ -28,10 +29,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Switch>
-        {routes}
-        <Redirect to="/" />
-      </Switch>
+      <div className="App">
+        <Switch>
+          {routes}
+          <Redirect to="/" />
+        </Switch>
+        {isAuth && <TapBar />}
+      </div>
     </BrowserRouter>
   );
 }

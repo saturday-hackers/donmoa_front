@@ -1,3 +1,63 @@
+@import "../index.scss";
+
 .Calendar {
-  font-size: 16px;
+  width: 100vw;
+  height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  .content {
+    width: 100vw;
+    position: relative;
+    padding-bottom: 15px;
+    .year {
+      text-align: center;
+    }
+    .calendar-flex {
+      display: flex;
+      font-size: 24px;
+      justify-content: space-around;
+      align-items: center;
+      width: 200px;
+      margin: 0 auto;
+      .month {
+        width: 80px;
+        text-align: center;
+      }
+    }
+    .calendar-table {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-top: 10px;
+      .date-name {
+        text-align: center;
+        margin: 15px;
+      }
+      .table {
+        &:first-child {
+          border-left: solid 1px $gray_5;
+        }
+        &:last-child {
+          border-right: solid 1px $gray_5;
+        }
+      }
+      .day {
+        border: solid 1px $gray_5;
+        height: 42px;
+        padding: 5px;
+        &.prev,
+        &.next {
+          color: $gray_4;
+        }
+        &.today {
+          color: $blue_6;
+        }
+        &:nth-child(2) {
+          border-top: solid 2px $gray_5;
+        }
+        &:last-child {
+          border-bottom: solid 2px $gray_5;
+        }
+      }
+    }
+  }
 }

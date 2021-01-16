@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./style/index.scss";
 import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { RecoilRoot } from "recoil";
+import "./style/index.scss";
+import "./style/reset.scss";
 
 ReactDOM.render(
   <React.StrictMode>

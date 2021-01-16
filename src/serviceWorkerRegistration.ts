@@ -57,7 +57,6 @@ export function register(config?: Config) {
       }
     });
   } else {
-    // 이곳! (else문 추가)
     console.log(
       "won't register serviceWorker. Current env:",
       process.env.NODE_ENV
@@ -70,6 +69,7 @@ function registerValidSW(swUrl: string, config?: Config) {
     .register(swUrl)
     .then((registration) => {
       console.log("serviceWorker is registered");
+
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
