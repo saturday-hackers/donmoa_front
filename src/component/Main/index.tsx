@@ -1,5 +1,5 @@
 import React from "react";
-import "./style/Main/index.scss";
+import "../../style/Main/index.scss";
 
 function Main() {
   return <div className="Main">메인 페이지</div>;

@@ -16,13 +16,13 @@ function App() {
   const routes = useMemo(() => {
     if (isAuth) {
       return [
-        <Route exact path="/" component={Main} />,
-        <Route path="/calendar" component={Calendar} />,
-        <Route path="/history" component={History} />,
-        <Route path="/list" component={List} />,
+        <Route exact path="/" component={Main} key={"/"} />,
+        <Route path="/calendar" component={Calendar} key={"/calendar"} />,
+        <Route path="/history" component={History} key={"/history"} />,
+        <Route path="/list" component={List} key={"/list"} />,
       ];
     } else {
-      return [<Route path="/" component={Login} />];
+      return [<Route path="/" component={Login} key={"/"} />];
     }
   }, [isAuth]);
 

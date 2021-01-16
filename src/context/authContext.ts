@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
 export const authState = atom({
-  key: "authState", // unique ID (with respect to other atoms/selectors)
-  default: false, // default value (aka initial value)
+  key: "auth_state", // unique ID (with respect to other atoms/selectors)
+  default: true, // default value (aka initial value)
 });
